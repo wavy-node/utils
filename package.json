@@ -1,6 +1,6 @@
 {
 	"name": "@wavynode/utils",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"description": "A set of utilities for integrating WavyNode",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -12,6 +12,21 @@
 			"types": "./dist/types/index.d.ts"
 		}
 	},
+	"files": [
+		"dist/**/*.cjs",
+		"dist/**/*.d.ts",
+		"dist/**/*.mjs"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/wavy-node/utils.git"
+	},
+	"author": "Manuel Rivera <menu.rivera@gmail.com>",
+	"license": "Apache-2.0",
+	"bugs": {
+		"url": "https://github.com/wavy-node/utils/issues"
+	},
+	"homepage": "https://github.com/wavy-node/utils#readme",
 	"scripts": {
 		"build": "bun run build:types && bun run build:cjs && bun run build:esm",
 		"build:cjs": "bun build src/index.ts --minify --target=node --outfile=dist/index.cjs --sourcemap --format=cjs",
