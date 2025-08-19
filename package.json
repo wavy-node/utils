@@ -1,0 +1,28 @@
+{
+	"name": "@wavynode/utils",
+	"version": "0.0.1",
+	"description": "A set of utilities for integrating WavyNode",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/types/index.d.ts",
+	"exports": {
+		".": {
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.js",
+			"types": "./dist/types/index.d.ts"
+		}
+	},
+	"scripts": {
+		"build": "bun run build:types && bun run build:cjs && bun run build:esm",
+		"build:cjs": "bun build src/index.ts --minify --target=node --outdir=dist --sourcemap --format=cjs --entrypoint --outfile=index.cjs",
+		"build:esm": "bun build src/index.ts --minify --target=node --outdir=dist --sourcemap --format=esm --entrypoint",
+		"build:types": "tsc",
+		"prepublishOnly": "bun run build"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	}
+}
