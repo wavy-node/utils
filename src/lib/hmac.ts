@@ -17,7 +17,8 @@ export const createHmacSignature = (message: string, secret?: string): string =>
 	* Creates a unique message to be signed for each request
 */
 export const formCanonicalMessage = ({ method, path, body, timestamp }: IFormCanonicalMessageParams): string => {
-	return `${method.toUpperCase()}::${path.toLowerCase()}::${JSON.stringify(body)}::${timestamp}`
+	const sortedBody = sortObjectAlphabetically(body)
+	return `${method.toUpperCase()}::${path.toLowerCase()}::${JSON.stringify(sortedBody)}::${timestamp}`
 }
 
 /**
@@ -41,4 +42,26 @@ export const validateSignature = ({
 	const hmacSignature = createHmacSignature(canonicalMessage, secret)
 
 	return hmacSignature === signature
+}
+
+/**
+	* Sorts object keys alphabetically to ensure correct serialization
+*/
+const sortObjectAlphabetically = <T extends Record<string, any>>(obj: T): T => {
+	const sortedKeys = Object
+		.keys(obj)
+		.sort()
+
+	const sortedObject = {} as T
+
+	for (const key of sortedKeys) {
+		if (typeof obj[key] === 'object' && obj[key] != null && !Array.isArray(obj[key])) {
+			// sort nested objects
+			sortedObject[key as keyof T] = sortObjectAlphabetically(obj[key])
+			continue
+		}
+		sortedObject[key as keyof T] = obj[key]
+	}
+
+	return sortedObject
 }
