@@ -21,7 +21,7 @@ export interface IValidateSignatureParams extends IFormCanonicalMessageParams {
 	/**
 		* From env variables
 	*/
-	secret?: string,
+	secret: string,
 	/**
 		* Time tolerance for this signature in ms, defaults to 5 minutes
 	*/
