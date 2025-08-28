@@ -38,7 +38,7 @@ export interface IPayload {
 		*/
 		userId: string,
 		address: string,
-		description: string
+		description: string | null
 	},
 	txHash: string,
 	timestamp: string,
