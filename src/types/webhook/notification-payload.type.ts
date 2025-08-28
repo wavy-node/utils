@@ -1,7 +1,7 @@
 export interface IToken {
 	name: string,
 	symbol: string,
-	decilmals: number,
+	decimals: number,
 	/**
 		* null if it's a native token 
 	*/
