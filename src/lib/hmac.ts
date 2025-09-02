@@ -56,9 +56,9 @@ const sortObjectAlphabetically = <T extends Record<string, any>>(obj: T): T => {
 		if (typeof obj[key] === 'object' && obj[key] != null && !Array.isArray(obj[key])) {
 			// sort nested objects
 			sortedObject[key as keyof T] = sortObjectAlphabetically(obj[key])
-			continue
+		} else {
+			sortedObject[key as keyof T] = obj[key]
 		}
-		sortedObject[key as keyof T] = obj[key]
 	}
 
 	return sortedObject
