@@ -73,7 +73,7 @@ export interface IUserData {
 			* Currency of the related bank account, 1 -> MXN, 2 -> USD.
 			* Check https://sppld.sat.gob.mx/pld/interiores/activos.html for reference.
 		*/
-		monedaCuentaRelacionada: 1,
+		monedaCuentaRelacionada: number,
 		documentoIdentificacion: {
 			tipoIdentificacion: number,
 			numeroIdentificacion: string
