@@ -1,6 +1,6 @@
 {
 	"name": "@wavynode/utils",
-	"version": "0.1.3",
+	"version": "0.1.5",
 	"description": "A set of utilities for integrating WavyNode",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -29,8 +29,8 @@
 	"homepage": "https://github.com/wavy-node/utils#readme",
 	"scripts": {
 		"build": "bun test && bun run build:types && bun run build:cjs && bun run build:esm",
-		"build:cjs": "bun build src/index.ts --minify --target=node --outfile=dist/index.cjs --sourcemap --format=cjs",
-		"build:esm": "bun build src/index.ts --minify --target=node --outfile=dist/index.mjs --sourcemap --format=esm",
+		"build:cjs": "bun build src/index.ts --minify --target=node --outfile=dist/index.cjs --format=cjs",
+		"build:esm": "bun build src/index.ts --minify --target=node --outfile=dist/index.mjs --format=esm",
 		"build:types": "tsc",
 		"prepublishOnly": "bun run build"
 	},
