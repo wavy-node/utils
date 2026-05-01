@@ -78,7 +78,40 @@ export interface IUserData {
       tipoIdentificacion: number;
       numeroIdentificacion: string;
     };
-    // todo
-    colombia?: {};
+  };
+  /**
+   * Colombian legislation fields, required if Colombian legislation is enabled in the dashboard.
+   */
+  colombia?: {
+    /**
+     * Tipo de identificación del cliente.
+     * Códigos válidos (Ej: '11' Registro Civil, '13' Cédula, '31' NIT, '00' Otro).
+     */
+    tipoIdentificacion: string;
+    /**
+     * Número de identificación del cliente.
+     * Diligenciar sin guiones, puntos, comas o espacios.
+     */
+    numeroIdentificacion: string;
+    /**
+     * Número del cliente.
+     * Número único dentro de la plataforma del PSAV, sin guiones ni separadores.
+     */
+    numeroCliente: string;
+    /**
+     * Número Wallet.
+     * Número único que identifica la Wallet, o el valor -1 si no requiere.
+     */
+    numeroWallet: string;
+    /**
+     * Ciudad residencia del cliente.
+     * Codificación del DANE (Ej: 11001 para Bogotá) o 00099 para extranjero.
+     */
+    ciudadResidencia: string;
+    /**
+     * Fecha de vinculación.
+     * Formato AAAA-MM-DD.
+     */
+    fechaVinculacion: string;
   };
 }
